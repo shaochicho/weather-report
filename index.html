@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWOS/ASOS飛行氣象資訊判讀自主學習</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="container">
+        <h1>AWOS/ASOS 飛行氣象資訊判讀自主學習</h1>
+        <p class="section-header">簡介：AWOS/ASOS 的用途</p>
+        
+        <p>
+            AWOS (Automated Weather Observing System) 和 ASOS (Automated Surface Observing System) 是機場自動化的地面氣象觀測系統。它們提供連續、實時的氣象數據，是飛行員在規劃和執行飛行任務時，判斷天氣條件和跑道適用性的基礎。
+        </p>
+
+        <p class="section-header">METAR資訊報告結構</p>
+        <p>
+            AWOS 和 ASOS 報告通常以標準的 METAR格式呈現。即使是語音廣播，其核心數據也是依據此格式編碼的。
+        </p>
+        
+        <div class="code-example">
+            <span class="label">範例報告：</span>
+           METAR RCSS 110600Z 09009KT 050V110 9999 FEW020 SCT035 25/16 Q1018 NOSIG RMK A3007=
+        </div>
+        
+
+        <p class="section-header">報告元素逐項解讀</p>
+        <ol class="decode-list">
+            <li><strong>機場代碼與時間：</strong>
+                <ul>
+                    <li><strong>RCSS：</strong> 機場 ICAO 代碼。</li>
+                    <div class="container">
+    <p class="section-header">台灣主要機場 ICAO 代碼</p>
+    <p>
+        在閱讀氣象報告 (METAR/SPECI) 時，第一個四字代碼即代表報告發布的機場。
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>機場名稱</th>
+                <th>ICAO 代碼</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>桃園國際機場</td><td>RCTP</td></tr>
+            <tr><td>台北松山機場</td><td>RCSS</td></tr>
+            <tr><td>台中清泉崗機場</td><td>RCMQ</td></tr>
+            <tr><td>嘉義機場</td><td>RCKU</td></tr>
+            <tr><td>高雄國際機場</td><td>RCKH</td></tr>
+            <tr><td>台南機場</td><td>RCNN</td></tr>
+            <tr><td>恆春機場</td><td>RCKW</td></tr>
+            <tr><td>花蓮機場</td><td>RCFN</td></tr>
+            <tr><td>澎湖馬公機場</td><td>RCQC</td></tr>
+            <tr><td>金門尚義機場</td><td>RCBS</td></tr>
+            <tr><td>台東機場</td><td>RCYU</td></tr>
+            <tr><td>澎湖望安機場</td><td>RCWA</td></tr>
+            <tr><td>綠島機場</td><td>RCGI</td></tr>
+            <tr><td>馬祖北竿機場</td><td>RCMT</td></tr>
+            <tr><td>馬祖南竿機場</td><td>RCFG</td></tr>
+            <tr><td>蘭嶼機場</td><td>RCLY</td></tr>
+            <tr><td>澎湖七美機場</td><td>RCFQ</td></tr>
+        </tbody>
+    </table>
+                    <li><strong>110600Z：</strong> 報告發布時間。<strong>11</strong> 是日期，<strong>0600Z</strong> 是UTC時間  06:00。</li>
+                </ul>
+            </li>
+            
+            
+            <li><strong>風向與風速 (WIND)：</strong>
+                <p>
+                    <strong>09009KT 050V110：</strong> 風向從 <strong>090</strong> 度吹來，風速為 <strong>9</strong> 節 (KT)， <strong>050V110</strong> 表示風向在 050 度到 110 度之間變化。
+                </p>
+            </li>
+            
+            <li><strong>能見度 (VISIBILITY)：</strong>
+                <p>
+                    <strong>9999：</strong> 水平能見度為 <strong>10</strong> 公里以上(10 Kilometers or more)。
+                </p>
+            </li>
+            
+            <li><strong>雲層狀況 (CLOUDS)：</strong>
+                <p>
+                    代碼由<strong>雲量</strong>和<strong>高度（百英尺為單位）</strong>組成。
+                    <ul>
+                        <li><strong>FEW020：</strong> 少量 (Few) 雲層在 <strong>2,000</strong> 英尺。</li>
+                        <li><strong>SCT035：</strong> 零星 (Scattered) 雲層在 <strong>3,500</strong> 英尺。</li>
+                    </ul>
+                    飛行員需特別注意 <strong>BKN/OVC</strong> (多雲/陰天) 的最低高度，這可能影響目視飛行規則 (VFR) 的最低要求。
+                </p>
+            </li>
+            
+            <li><strong>溫度與露點 (TEMP/DEW POINT)：</strong>
+                <p>
+                    <strong>25/16：</strong> 氣溫 <strong>25</strong> 攝氏度，露點 <strong>16</strong> 攝氏度。溫差越小，空氣濕度越高，結霧的可能性越大。
+                </p>
+            </li>
+            <p class="section-header"> METAR/SPECI 代碼詳細對照表</p>
+    
+    <p>
+        以下為航空氣象報告 (METAR/SPECI) 中各組代碼的意義。METAR 是例行報告(每30分鐘一報)，SPECI 是特殊報告(在天氣劇烈變化時會發布)。
+    </p>
+    
+    <h3>1. 基本資訊與時間</h3>
+    <table>
+        <thead>
+            <tr><th>代碼</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="term">METAR / SPECI</td><td>例行航空氣象報告（每半小時） / 特殊航空氣象報告（突發天氣變化）</td></tr>
+            <tr><td>ICAO 四字代碼</td><td>機場代碼，如 RCTP (桃園)</td></tr>
+            <tr><td>時間 (e.g., 111853Z)</td><td>日期 (11) 及時間 (18:53)，Z 代表協調世界時 (Zulu Time)</td></tr>
+        </tbody>
+    </table>
+    
+    <h3>2. 風 (Wind)</h3>
+    <table>
+        <thead>
+            <tr><th>代碼</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>dddffKT</td><td>風向 (ddd) 風速 (ff) 節 (KT)</td></tr>
+            <tr><td>VRBffKT</td><td>風向不定，風速 (ff) 節</td></tr>
+            <tr><td>dddff<strong class="decode-code">G</strong>ggKT</td><td>有陣風，<strong class="decode-code">G</strong>gg 為最大陣風速度 (Gust)</td></tr>
+            <tr><td>dddVddd</td><td>風向可變範圍 (例如 050V110)</td></tr>
+        </tbody>
+    </table>
+
+    <h3>3. 能見度與跑道視程 (RVR)</h3>
+    <table>
+        <thead>
+            <tr><th>代碼</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>9999</td><td>能見度 ≥10 km</td></tr>
+            <tr><td><strong class="decode-code">CAVOK</strong></td><td>Ceiling And Visibility OK → 能見度 ≥10 km，無顯著天氣，雲底 ≥5000 ft</td></tr>
+            <tr><td>R<strong class="decode-code">23</strong>/<strong class="decode-code">1200</strong></td><td><strong class="decode-code">23</strong> 跑道 RVR (Runway Visual Range) = <strong class="decode-code">1200</strong> m</td></tr>
+            <tr><td>R05/0800<strong class="decode-code">N/U/D</strong></td><td>N=無變化, U=上升中, D=下降中</td></tr>
+        </tbody>
+    </table>
+    
+    <h3>4. 天氣現象</h3>
+    <p>代碼由 強度/修飾符 + 現象代碼 組成（強度：<strong class="decode-code">-</strong>輕，<strong class="decode-code">+</strong>強，<strong class="decode-code">VC</strong>附近）。</p>
+    <table>
+        <thead>
+            <tr><th>類別</th><th>代碼</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+            <tr><td rowspan="4">降水</td><td><strong class="decode-code">RA</strong></td><td>雨 (Rain)</td></tr>
+            <tr><td><strong class="decode-code">DZ / SN</strong></td><td>毛毛雨 (Drizzle) / 雪 (Snow)</td></tr>
+            <tr><td><strong class="decode-code">GR / GS</strong></td><td>冰雹 (Hail, >5mm) / 小冰雹/霰</td></tr>
+            <tr><td><strong class="decode-code">IC / PL</strong></td><td>霰 (Ice crystals) / 冰珠 (Ice pellets)</td></tr>
+            <tr><td rowspan="3">能見度降低</td><td><strong class="decode-code">BR / FG</strong></td><td>薄霧 (Mist, vis 1–5 km) / 霧 (Fog, vis <1 km)</td></tr>
+            <tr><td><strong class="decode-code">FU / HZ</strong></td><td>煙 (Smoke) / 霾 (Haze)</td></tr>
+            <tr><td><strong class="decode-code">VA / SA</strong></td><td>火山灰 (Volcanic ash) / 沙 (Sand)</td></tr>
+            <tr><td rowspan="2">其他</td><td><strong class="decode-code">TS / SH</strong></td><td>雷暴 (Thunderstorm) / 陣性 (Shower)</td></tr>
+            <tr><td><strong class="decode-code">FZ / FC</strong></td><td>過冷 (Freezing, 前綴) / 漏斗雲/龍捲風</td></tr>
+        </tbody>
+    </table>
+
+    <h3>5. 雲量與雲高</h3>
+    <p>高度單位為 <strong class="decode-code">nnn × 100 ft</strong>。例如 <strong class="decode-code">040</strong> = 4000 呎。</p>
+    <table>
+        <thead>
+            <tr><th>雲量代碼</th><th>說明 </th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong class="decode-code">SKC / CLR / NSC</strong></td><td>無雲 / 自動站無雲 / 無顯著雲</td></tr>
+            <tr><td><strong class="decode-code">FEW</strong></td><td>少量雲 (1–2 成)</td></tr>
+            <tr><td><strong class="decode-code">SCT</strong></td><td>疏雲 (3–4 成)</td></tr>
+            <tr><td><strong class="decode-code">BKN</strong></td><td>多雲 (5–7 成)</td></tr>
+            <tr><td><strong class="decode-code">OVC</strong></td><td>陰天 (8 成)</td></tr>
+            <tr><td><strong class="decode-code">VVnnn</strong></td><td>垂直能見度 (nnn×100 ft)</td></tr>
+            <tr><td><strong class="decode-code">CB / TCU</strong></td><td>積雨雲 (Cumulonimbus) / 龍骨狀積雲 (Towering cumulus)</td></tr>
+        </tbody>
+    </table>
+    
+    <h3>6. 溫度與氣壓</h3>
+    <table>
+        <thead>
+            <tr><th>代碼</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong class="decode-code">TT/DD</strong></td><td>溫度 (TT) / 露點 (DD)，皆為攝氏</td></tr>
+            <tr><td><strong class="decode-code">Mnn</strong></td><td>負溫度，例如 <strong class="decode-code">M05</strong> = -5°C</td></tr>
+            <tr><td><strong class="decode-code">Qnnnn</strong></td><td>氣壓 QNH (hPa)，例如 Q1012</td></tr>
+            <tr><td><strong class="decode-code">Annnn</strong></td><td>氣壓 QNH (inHg)，例如 A2992</td></tr>
+        </tbody>
+    </table>
+    
+    <h3>7. 趨勢預報與備註</h3>
+    <table>
+        <thead>
+            <tr><th>代碼</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong class="decode-code">NOSIG</strong></td><td>無顯著變化 (No significant change)</td></tr>
+            <tr><td><strong class="decode-code">BECMG / TEMPO</strong></td><td>將逐漸變化 / 暫時性變化</td></tr>
+            <tr><td><strong class="decode-code">RMK</strong></td><td>備註 (Remarks)</td></tr>
+            <tr><td><strong class="decode-code">WS Rxx</strong></td><td>跑道風切變 (Wind shear)</td></tr>
+        </tbody>
+    </table>
+
+
+<div style="height: 50px;"></div>
+            
+            <li><strong>氣壓設定 (ALTIMETER)：</strong>
+                <p>
+                    <strong>Q1018 & A3007：</strong> 高度計設定為<strong>1018</strong> 百帕或 <strong>30.07</strong> 吋汞柱。飛行員必須在進入機場區域前設定此值。
+                </p>
+            </li>
+        </ol>
+        <p class="section-header">AWOS/ASOS 與 ATIS 的區別</p>
+        <p>
+            雖然 AWOS/ASOS 提供氣象數據，但 ATIS (自動終端資訊服務) 則提供更全面的機場運行資訊，包括：跑道使用、儀表進場、特殊注意事項等，以及最新的氣象數據（通常來自 AWOS/ASOS）。
+        </p>
+
+        
+    </div>
+    <div style="height: 50px;"></div>
+</body>
+</html>
+</div>
