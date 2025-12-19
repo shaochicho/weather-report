@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWOS/ASOS飛行氣象資訊判讀自主學習</title>
+    <title>Printed weather report-METAR飛行氣象資訊判讀自主學習</title>
     <link rel="stylesheet" href="style.css">
    
 </head>
 <body>
     <div class="container">
-        <h1>AWOS/ASOS 飛行氣象資訊判讀自主學習</h1>
-        <p class="section-header">簡介：AWOS/ASOS 的用途</p>
+        <h1>Printed weather report-METAR飛行氣象資訊判讀自主學習</h1>
+        <p class="section-header">簡介：Printed weather report-METAR 的用途</p>
         
         <p>
-            AWOS (Automated Weather Observing System) 和 ASOS (Automated Surface Observing System) 是機場自動化的地面氣象觀測系統。它們提供連續、實時的氣象數據，是飛行員在規劃和執行飛行任務時，判斷天氣條件和跑道適用性的基礎。
+            METAR是飛行員接收天氣的重要工具，由一串代碼所組成，每30分鐘會更新一次，如果在三十分鐘內有顯著的天氣變化，會發布"SPECI"這個報文。這些報告提供了關於風向、風速、能見度、雲層狀況、溫度、露點和氣壓等關鍵天氣資訊，幫助飛行員做出安全的飛行決策。
         </p>
 
         <p class="section-header">METAR資訊報告結構</p>
         <p>
-            AWOS 和 ASOS 報告通常以標準的 METAR格式呈現。即使是語音廣播，其核心數據也是依據此格式編碼的。
+           METAR報告通常以標準的 METAR格式呈現。即使是語音廣播(ATIS)，其核心數據也是依據此格式編碼的。
         </p>
         
         <div class="code-example">
@@ -213,9 +213,9 @@
                 </p>
             </li>
         </ol>
-        <p class="section-header">AWOS/ASOS 與 ATIS 的區別</p>
+        <p class="section-header">METAR 與 ATIS 的區別</p>
         <p>
-            雖然 AWOS/ASOS 提供氣象數據，但 ATIS (自動終端資訊服務) 則提供更全面的機場運行資訊，包括：跑道使用、儀表進場、特殊注意事項等，以及最新的氣象數據（通常來自 AWOS/ASOS）。
+            雖然 METAR提供氣象數據，但 ATIS (自動終端資訊服務) 則提供更全面的機場運行資訊，包括：跑道使用(Runway condition code)、儀表進場、特殊注意事項等，以及最新的氣象數據（通常來自 METAR）。
         </p>
 
         
